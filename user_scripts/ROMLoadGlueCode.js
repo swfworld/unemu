@@ -52,10 +52,10 @@ function fileLoadShimCode(files, ROMHandler) {
     }
 }
 function fileLoadBIOS() {
-    fileLoadShimCode("/roms/gba.bin", attachBIOS);
+    fileLoadShimCode(this.files, attachBIOS);
 }
 function fileLoadROM() {
-    fileLoadShimCode("/roms/firered.gba", attachROM);
+    fileLoadShimCode(this.files, attachROM);
 }
 function downloadFile(fileName, registrationHandler) {
     var ajax = new XMLHttpRequest();
