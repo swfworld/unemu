@@ -68,6 +68,164 @@
 <link rel="stylesheet" href="/resources/unemu.css">
 </head>
 <body>
-<canvas class="canvas" id="emulator_target" width="240" height="160"></canvas>
+<div id="container">
+<div id="menu" class="paused">
+<ul class="menu" id="menu_top">
+<li>
+File
+<ul>
+<li><span>BIOS: </span> <input type="file" id="bios_load" class="files"></li>
+<li><span>Game: </span> <input type="file" id="rom_load" class="files"></li>
+</ul>
+</li>
+<li id="play" class="show">Play</li>
+<li id="pause" class="hide">Pause</li>
+<li id="restart">Restart</li>
+<li>
+Settings
+<ul>
+<li>
+<input type="checkbox" id="skip_boot"> Skip Boot Intro
+</li>
+<li>
+<input type="checkbox" id="toggleSmoothScaling" checked="checked"> Smooth Scaling
+</li>
+<li>
+<input type="checkbox" id="toggleDynamicSpeed"> Dynamic Speed
+</li>
+<li>
+<input type="checkbox" id="offthread-cpu" checked="checked"> CPU off-thread
+</li>
+<li>
+<input type="checkbox" id="offthread-gpu" checked="checked"> GPU off-thread
+</li>
+<li>
+<input type="checkbox" id="sound"> Sound
+</li>
+<li>
+GBA Bindings
+<ul>
+    <li id="key_a">
+        <span>A</span>
+    </li>
+    <li id="key_b">
+        <span>B</span>
+    </li>
+    <li id="key_l">
+        <span>L</span>
+    </li>
+    <li id="key_r">
+        <span>R</span>
+    </li>
+    <li id="key_start">
+        <span>Start</span>
+    </li>
+    <li id="key_select">
+        <span>Select</span>
+    </li>
+    <li id="key_up">
+        <span>↑</span>
+    </li>
+    <li id="key_down">
+        <span>↓</span>
+    </li>
+    <li id="key_left">
+        <span>←</span>
+    </li>
+    <li id="key_right">
+        <span>→</span>
+    </li>
+</ul>
+</li>
+<li>
+Emulator Bindings
+<ul>
+    <li id="key_volumeup">
+        <span>Volume Up</span>
+    </li>
+    <li id="key_volumedown">
+        <span>Volume Down</span>
+    </li>
+    <li id="key_speedup">
+        <span>Speed Up</span>
+    </li>
+    <li id="key_slowdown">
+        <span>Slow Down</span>
+    </li>
+    <li id="key_speedreset">
+        <span>Speed Reset</span>
+    </li>
+    <li id="key_fullscreen">
+        <span>Fullscreen</span>
+    </li>
+    <li id="key_playpause">
+        <span>Play/Pause</span>
+    </li>
+    <li id="key_restart">
+        <span>Restart</span>
+    </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+Volume
+<ul>
+<li>
+<input type="range" id="volume">
+</li>
+</ul>
+</li>
+<li id="saves_menu">
+Saves
+<ul id="saves_menu_container">
+<li>
+<span>Import:</span><input type="file" id="import" class="files">
+</li>
+<li id="existing_saves">
+<span>Existing Saves</span>
+<ul id="existing_saves_list">
+
+</ul>
+</li>
+<li>
+<a href="./" id="export" target="_new">Export All Saves</a>
+</li>
+</ul>
+</li>
+<li id="fullscreen">Fullscreen</li>
+<li>
+<span id="speed">Speed</span>
+<ul>
+<li>
+<input type="range" id="speedset">
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="main">
+<canvas class="canvas" id="emulator_target" width="840" height="360"></canvas>
+</div>
+<div class="touch-controls">
+<div class="touch-dpad">
+<button id="touch-up">↑</button><br>
+<button id="touch-left">←</button>
+<button id="touch-right">→</button><br>
+<button id="touch-down">↓</button>
+</div>
+<div class="touch-buttons">
+<button id="touch-select">SELECT</button> 
+<button id="touch-start">START</button>
+</div>
+<div class="touch-buttons">
+<button id="touch-a">A</button>
+<button id="touch-b">B</button><br>
+<button id="touch-l">L</button>
+<button id="touch-r">R</button>
+</div>
+</div>
+<span class="message" id="tempMessage"></span>
+</div>
 </body>
 </html>
