@@ -52,7 +52,7 @@ function fileLoadShimCode(files, ROMHandler) {
     }
 }
 function fileLoadBIOS() {
-    fileLoadShimCode("/roms/gba.bin", attachBIOS);
+    fileLoadShimCode(this.files, attachBIOS);
 }
 function fileLoadROM() {
     fileLoadShimCode(this.files, attachROM);
