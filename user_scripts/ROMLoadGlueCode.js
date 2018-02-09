@@ -52,9 +52,25 @@ function fileLoadShimCode(files, ROMHandler) {
     }
 }
 function fileLoadBIOS() {
-    fileLoadShimCode(this.files, attachBIOS);
+    var blob = null;
+    var xhr = new XMLHttpRequest(); 
+    xhr.open("GET", "/roms/gba.bin"); 
+    xhr.responseType = "blob";
+    xhr.onload = function() {
+        blob = xhr.response;
+    }
+    xhr.send();
+    fileLoadShimCode(blob, attachBIOS);
 }
 function fileLoadROM() {
+    var blob = null;
+    var xhr = new XMLHttpRequest(); 
+    xhr.open("GET", "/roms/boot.gba"); 
+    xhr.responseType = "blob";
+    xhr.onload = function() {
+        blob = xhr.response;
+    }
+    xhr.send();
     fileLoadShimCode(this.files, attachROM);
 }
 function downloadFile(fileName, registrationHandler) {
